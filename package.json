@@ -19,5 +19,8 @@
   "homepage": "https://github.com/YuriRechAlves/Avaliacao17.04#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
