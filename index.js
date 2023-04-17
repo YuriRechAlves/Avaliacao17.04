@@ -7,5 +7,5 @@ server.use(routes);
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 
-server.listen(3000, => {console.log("Servidor em execução: localhost/3000")});
+server.listen(3000, () => {console.log("Servidor em execução: localhost/3000")});
 
