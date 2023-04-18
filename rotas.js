@@ -2,7 +2,7 @@ const express = require("express");
 
 const routes = express.Router();
 
-let = lista [
+let lista = [
     {
     "id": 1,
     "descricao": "Camiseta",
@@ -29,24 +29,28 @@ let = lista [
     }]
 
 routes.get("/",(req,res)=>{
-    res.status(200).json(lista)
+    res.status(200).json(lista) // MOSTRA A LISTA INTEIRA
 });
 
 routes.get("/:id",(req,res)=>{
-    res.status(200).json(lista[req.params.id-1])
+    res.status(200).json(lista[req.params.id-1]) // MOSTRA OS ITEMS ID DA LISTA
 });
 
 routes.post("/",(req,res)=>{
-    res.status(200).json("Adicionando um novo item: ")
+    lista.push(req.body)
+    res.status(200).redirect("/") // VAI PARA O INICIO DA PAGINA PARA MOSTRAR QUE ADICIONOU NOVO ITEM
 })
 
 routes.put("/:id",(req,res)=>{
-    res.status(200).json("Atualizar os dados do conjunto correspondentes ao ID informado: "[req.params.id])
+    console.log(req.body)
+    lista[req.params.id-1] = req.body
+    res.status(200).redirect("/")
 })
 
 routes.delete("/:id",(req,res)=>{
     lista.splice(req.params.id-1,1);
-    res.status(200).redirect("/")
+    res.status(200).redirect("/") // Redirecionar para mostrar que tomou DELETE
 })
 
 module.exports = routes;
+    
